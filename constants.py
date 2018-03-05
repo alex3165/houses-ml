@@ -28,4 +28,4 @@ HEADERS = {
     'record_status': 15
 }
 
-DEFAULT_CITY_FILTER = "LONDON"
+DEFAULT_CITY_FILTER = ['LONDON']
