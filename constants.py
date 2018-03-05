@@ -1,10 +1,3 @@
-"""This module normalize the house data."""
-
-import csv
-import sys
-from utils.args import getopts
-import os.path
-
 HEADERS = {
     'id': 0,
     'price': 1,
@@ -35,30 +28,4 @@ HEADERS = {
     'record_status': 15
 }
 
-CITY_FILTER = "LONDON"
-
-# Arguments handling
-
-ARGS = getopts(sys.argv)
-
-if ARGS.get('-i') is None or not os.path.isfile(ARGS.get('-i')[0]):
-    print('Please provide a valid input file')
-    exit()
-
-# Body of the data handling
-
-with open(ARGS.get('-i')[0], 'rt', encoding='utf-8') as csvfile:
-    FILE = csv.reader(csvfile, delimiter=',', quotechar='|')
-    COUNT = 0
-    RES = []
-    for row in FILE:
-        NEW_ROW = list(map(lambda x: x.replace('"', ''), row))
-        if NEW_ROW[HEADERS.get('town_city')] == CITY_FILTER:
-            RES.append(NEW_ROW)
-            COUNT = COUNT + 1
-
-    FILENAME = ARGS.get('-i')[0].split('/').pop()
-
-    DEST = csv.writer(open('./data/' + FILENAME, 'w'),
-                      delimiter='\n', quoting=csv.QUOTE_ALL)
-    DEST.writerow(list(map(lambda x: ', '.join(x), RES)))
+DEFAULT_CITY_FILTER = "LONDON"
