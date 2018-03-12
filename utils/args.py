@@ -1,3 +1,8 @@
+# Arguments table
+# -i: Input file to process
+# -f: Filter to use
+
+
 def getopts(argv):
     opts = {}
     while argv:
@@ -8,3 +13,8 @@ def getopts(argv):
                 opts[argv[0]] = [argv[1]]
         argv = argv[1:]
     return opts
+
+
+def areArgumentsValid(required, args):
+    RES = list(filter(lambda x: x in args, required))
+    return len(RES) == len(required)

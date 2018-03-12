@@ -18,3 +18,13 @@ def writeHousesCSVFromList(path, housesList):
         DEST.writerow(row)
 
     return DEST
+
+
+def getAllFromInputFiles(args):
+    output = []
+    for inputFile in args:
+        with open(inputFile, 'rt', encoding='utf-8') as csvfile:
+            NEW = readHousesCSVToList(csvfile)
+            output = output + NEW
+            print(len(output))
+    return output
