@@ -20,4 +20,4 @@ Problem to solve:
   * Simpler version: Is it a good area yes or no
 
 * Predict price in the area
-  * visualisation (bar chart): Average price paid (y), old_new (x)
+  * visualisation (bar chart): Average price paid (y), postal code (x)

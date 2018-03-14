@@ -26,5 +26,4 @@ def getAllFromInputFiles(args):
         with open(inputFile, 'rt', encoding='utf-8') as csvfile:
             NEW = readHousesCSVToList(csvfile)
             output = output + NEW
-            print(len(output))
     return output
